@@ -24,6 +24,7 @@ void setup() {
   pinMode(2, INPUT); // D2
   pinMode(A3, INPUT); // A3
   pinMode(8, INPUT); // D8
+  pinMode(12, INPUT);
 }
 
 void servo_start() {
@@ -84,7 +85,7 @@ void loop() {
   int digitalD2 = digitalRead(2); // D2
   int digitalA3 = digitalRead(A3); // A3
   int digitalD8 = digitalRead(8); // D8
-
+  int micro_start = digitalRead(12);
 // for debug
   // LINE SENSORS
   Serial.print(" ");
@@ -104,7 +105,10 @@ void loop() {
   Serial.print(digitalA3);
   Serial.print(" ");
   Serial.println(digitalD8);
+  // ir sensor 
+  Serial.println(micro_start);
 
+if(micro_start == 1){
 if (analogA2 < 100 and analogA1 < 100){
   Backward();
   delay(150);
@@ -126,7 +130,7 @@ else{
   }
   else if(digitalD2 == 1 or digitalD8 == 1){
     left();
-        delay(100);
+    delay(100);
   }
   else if(digitalD7 == 1 or digitalD4 == 1){
     right();
@@ -136,4 +140,8 @@ else{
     right();
     }
   }
+}
+else{
+  Stop();
+}
 }
