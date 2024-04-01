@@ -106,26 +106,26 @@ void loop() {
   Serial.println(digitalD8);
 
 Forward();
-// if (analogA2 < 100 and analogA1 < 100){
-//   Backward();
-//   delay(150);
-//   right();
-//   delay(200);
+if (analogA2 < 100 and analogA1 < 100){
+  Backward();
+  delay(150);
+  right();
+  delay(200);
+}
+else{
+  if(digitalA3 == 1){
+    Forward();
+  }
+  else if(digitalD2 == 1 or digitalD8 == 1){
+    left();
+        delay(100);
+  }
+  else if(digitalD7 == 1 or digitalD4 == 1){
+    right();
+    delay(100);
+  }
+  else{
+    right();
+}
 // }
-// else{
-//   if(digitalA3 == 1){
-//     Forward();
-//   }
-//   else if(digitalD2 == 1 or digitalD8 == 1){
-//     left();
-//         delay(100);
-//   }
-//   else if(digitalD7 == 1 or digitalD4 == 1){
-//     right();
-//     delay(100);
-//   }
-//   else{
-//     right();
-// }
-// // }
 }
