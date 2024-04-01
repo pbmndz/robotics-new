@@ -105,12 +105,20 @@ void loop() {
   Serial.print(" ");
   Serial.println(digitalD8);
 
-Forward();
 if (analogA2 < 100 and analogA1 < 100){
   Backward();
   delay(150);
   right();
   delay(200);
+}
+else if(analogA0 > 100){
+  // left 
+}
+else if(analogA1 > 100){
+  // right 
+}
+else if(analogA2 > 100){
+  // back
 }
 else{
   if(digitalA3 == 1){
@@ -126,6 +134,6 @@ else{
   }
   else{
     right();
-}
-// }
+    }
+  }
 }
